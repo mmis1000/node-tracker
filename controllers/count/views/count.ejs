@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head lang="zh-TW">
+    <title><%= name %> - <%= count %> views</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <style>
+      #number {
+        position:fixed;
+        top:0px;
+        bottom:0px;
+        left:0px;
+        right:0px;
+        font-size:32px;
+        text-align:center;
+        vertical-align:middle;
+        line-height:0px;
+      }
+      .placeholder {
+        height : 100%;
+        width : 0px;
+        display : inline-block;
+        vertical-align:middle;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="number">
+      <%= count %>
+      <div class="placeholder"></div>
+    </div>
+  </body>
+</html>
