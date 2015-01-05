@@ -26,6 +26,8 @@ main = (app ,models, basePath = '/')->
   requiredControllers = []
 
   for controller in controllers
+    if 0 is controller.search /^__/g
+      continue
     try
       controller = {
         path : controller

@@ -5,15 +5,9 @@
     <meta name=viewport content="width=device-width, initial-scale=1">
     <style>
       #number {
-        position:fixed;
-        top:0px;
-        bottom:0px;
-        left:0px;
-        right:0px;
         font-size:32px;
         text-align:center;
         vertical-align:middle;
-        line-height:0px;
       }
       .placeholder {
         height : 100%;
@@ -22,14 +16,16 @@
         vertical-align:middle;
       }
     </style>
+    <% include ../../__shared/views/head %>
   </head>
   <body>
+    <% include ../../__shared/views/header %>
     <div class="content">
-      content
       <div id="number">
-        <%= count %>
+        this tracker has been viewed <%= count %> times
         <div class="placeholder"></div>
       </div>
     </div>
+    <% include ../../__shared/views/footer %>
   </body>
 </html>

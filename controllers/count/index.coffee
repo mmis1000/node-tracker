@@ -12,12 +12,15 @@ controller =
     #console.log modules
     counter = (modules.get 'com.gmail.mmis10002.node_tracker').counter
     newEtag = (modules.get 'com.gmail.mmis10002.node_tracker').newEtag
+    siteInfo = (modules.get 'com.gmail.mmis10002.node_tracker').siteInfo()
     router.use (req, res, next)->
       currentEtag = req.get 'If-None-Match'
       currentEtag = currentEtag || newEtag()
       res.set 'ETag', currentEtag
       res.etag = currentEtag
-      res.setHeader('Last-Modified', (new Date()).toUTCString());
+      res.setHeader 'Last-Modified', (new Date()).toUTCString()
+      res.setHeader 'cache-control', 'private, max-age=0, must-revalidate'
+      console.log req.originalUrl, req.get 'Accept-Language'
       next()
     
     router.get '/html/:id', (req, res, next)->
@@ -31,7 +34,7 @@ controller =
       
       console.log id, ip, count, agent, referer, res.etag
       
-      res.render 'count', {count : count, name : id}
+      res.render 'count', {count : count, name : id, site : siteInfo}
 
     router.get '/png/:id', (req, res, next)->
       ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
