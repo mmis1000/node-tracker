@@ -6,10 +6,10 @@
   "repository": "",
   "author": "Mostafa Eweda <mo.eweda@gmail.com>",
   "dependencies": {
-    "canvas": "^1.1.6",
+    "canvas": "^2.1.0",
     "coffee-script": "^1.8.0",
     "compression": "^1.2.2",
-    "ejs": "^1.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.10.6"
   }
 }
